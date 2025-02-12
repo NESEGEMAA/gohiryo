@@ -1,15 +1,12 @@
 import { Link } from 'expo-router';
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <Text>Home</Text>
-      <Link href="/details" asChild>
-        <Pressable>
-          <Text>View details</Text>
-        </Pressable>
-    </Link>
+      <Link href="/details/1">View first user details</Link>
+      <Link href="/details/2">View second user details</Link>
     </View>
   );
 }

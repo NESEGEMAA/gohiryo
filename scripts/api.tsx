@@ -7,7 +7,7 @@ export const fetchUsers = async (): Promise<Record<number, { name: string; avata
       (acc, user) => {
         acc[user.id] = {
           name: user.name,
-          avatar: `https://api.dicebear.com/9.x/dylan/svg?seed=${user? user.id : 10}`,
+          avatar: `https://api.dicebear.com/9.x/dylan/jpg?seed=${user? user.id : 10}`,
         };
         return acc;
       },

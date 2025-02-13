@@ -17,8 +17,7 @@ export default function PostList() {
   }, []);
 
   return (
-    <View style={{ flex: 1 }}>
-      <Text style={styles.title}>Posts</Text>
+    <View style={{ flex: 1, backgroundColor: '#f3e4a0' }}>
       <FlatList
         data={posts}
         keyExtractor={(item) => item.id.toString()}
@@ -28,7 +27,7 @@ export default function PostList() {
             <Link href={`/post/${item.id}`} asChild>
               <TouchableOpacity style={styles.postItem}>
                 <Image
-                  source={{ uri: user?.avatar || 'https://ui-avatars.com/api/?name=User&size=40' }}
+                  source={{ uri: user?.avatar || 'https://api.dicebear.com/9.x/pixel-art/jpg' }}
                   style={styles.avatar}
                   resizeMode="cover"
                 />
@@ -50,7 +49,6 @@ export default function PostList() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 10 },
-  title: { fontSize: 24, fontWeight: 'bold', marginBottom: 10 },
   postItem: { flexDirection: 'row', padding: 10, borderBottomWidth: 1, alignItems: 'center' },
   avatar: { width: 40, height: 40, borderRadius: 20, marginRight: 10 },
   userName: { fontWeight: 'bold' },

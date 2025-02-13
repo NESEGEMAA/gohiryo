@@ -60,22 +60,6 @@ Start the Expo development server:
     Comments: https://gorest.co.in/public/v2/comments
     User Avatars: https://api.dicebear.com/9.x/dylan/jpg?seed={user_id}
 
-## 📂 Project Structure
-
-📦 <project-folder>
-├── 📂 app
-│   ├── 📜 _layout.tsx  # Global Layout with Navigation
-│   ├── 📜 index.tsx    # Home Screen (Post List)
-│   ├── 📂 post
-│   │   ├── 📜 [id].tsx  # Post Details Screen
-│
-├── 📂 scripts
-│   ├── 📜 api.tsx  # Fetch functions users
-│
-├── 📜 README.md  # This file
-├── 📜 package.json
-├── 📜 app.json
-
 ## 💬 Contact
 
 For any questions or suggestions, reach out at:

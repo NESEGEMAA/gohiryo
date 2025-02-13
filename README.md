@@ -16,8 +16,6 @@ A React Native app built with Expo that displays a list of posts fetched from an
 ---
 
 ## 📸 Screenshots
-
-<img src="<screenshot-link>" width="250"> <img src="<screenshot-link>" width="250">
 ![App Screenshot](assets/images/screenshot1.png)
 ![App Screenshot](assets/images/screenshot2.png)
 

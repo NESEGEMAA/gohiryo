@@ -31,7 +31,7 @@ export default function PostDetails() {
     <View style={styles.container}>
       <View style={styles.header}>
         <Image
-          source={{ uri: user?.avatar || 'https://ui-avatars.com/api/?name=User&size=40' }}
+          source={{ uri: user?.avatar || 'https://api.dicebear.com/9.x/pixel-art/jpg' }}
           style={styles.avatar}
           resizeMode="cover"
         />
@@ -47,7 +47,7 @@ export default function PostDetails() {
         keyExtractor={(comment) => comment.id.toString()}
         renderItem={({ item }) => (
           <View style={styles.commentCard}>
-            <Image source={{ uri: `https://api.dicebear.com/9.x/dylan/svg?seed=${item? item.id : 10}` }}
+            <Image source={{ uri: `https://api.dicebear.com/9.x/dylan/jpg?seed=${item? item.id : 10}` }}
               style={styles.avatar}
               resizeMode="cover"
             />

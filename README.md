@@ -1,50 +1,86 @@
-# Welcome to your Expo app 👋
+# 📱 <Your App Name>
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A React Native app built with Expo that displays a list of posts fetched from an API. Users can navigate to detailed post pages that show the post content, author details, and comments.
 
-## Get started
+---
 
-1. Install dependencies
+## 🚀 Features
 
-   ```bash
-   npm install
-   ```
+- Fetch and display a list of posts from an API
+- Navigate to a post details page
+- Show user details (name & avatar) on posts and comments
+- Fetch and display comments related to a post
+- Smooth navigation using `expo-router`
+- TypeScript support for better development experience
 
-2. Start the app
+---
 
-   ```bash
+## 📸 Screenshots
+
+<img src="<screenshot-link>" width="250"> <img src="<screenshot-link>" width="250">
+![App Screenshot](assets/images/screenshot1.png)
+![App Screenshot](assets/images/screenshot2.png)
+
+
+---
+
+## 🛠️ Tech Stack
+
+- **React Native** with **Expo**
+- **TypeScript**
+- **Expo Router** for navigation
+- **REST API** (Using `fetch`)
+- **FlatList** for efficient rendering
+- **DiceBear API** for user avatars
+
+---
+
+## 📦 Installation & Setup
+
+1. **Clone the repository:**
+   ```sh
+   git clone <repo-url>
+   cd <project-folder>
+
+    Install dependencies:
+
+npm install
+
+Start the Expo development server:
+
     npx expo start
-   ```
 
-In the output, you'll find options to open the app in a
+    Run the app on a device:
+        Scan the QR code with Expo Go (Android/iOS)
+        Press i to open in iOS Simulator
+        Press a to open in Android Emulator
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+🔌 API Endpoints
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+    Posts: https://gorest.co.in/public/v2/posts
+    Users: https://gorest.co.in/public/v2/users
+    Comments: https://gorest.co.in/public/v2/comments
+    User Avatars: https://api.dicebear.com/9.x/dylan/jpg?seed={user_id}
 
-## Get a fresh project
+## 📂 Project Structure
 
-When you're ready, run:
+📦 <project-folder>
+├── 📂 app
+│   ├── 📜 _layout.tsx  # Global Layout with Navigation
+│   ├── 📜 index.tsx    # Home Screen (Post List)
+│   ├── 📂 post
+│   │   ├── 📜 [id].tsx  # Post Details Screen
+│
+├── 📂 scripts
+│   ├── 📜 api.tsx  # Fetch functions users
+│
+├── 📜 README.md  # This file
+├── 📜 package.json
+├── 📜 app.json
 
-```bash
-npm run reset-project
-```
+## 💬 Contact
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+For any questions or suggestions, reach out at:
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+    GitHub: @nesegemaa
+    Email: noureldin.gamaleldin@gmail.com

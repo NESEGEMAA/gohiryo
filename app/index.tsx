@@ -1,47 +1,60 @@
 import { useState, useEffect } from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { Link } from 'expo-router';
+import { fetchUsers } from '../scripts/api';
 
 export default function PostList() {
-  const [posts, setPosts] = useState<
-    { id: number; user_id: number; title: string; body: string }[]
-  >([]);
+  const [posts, setPosts] = useState<{ id: number; user_id: number; title: string; body: string }[]>([]);
+  const [users, setUsers] = useState<Record<number, { name: string; avatar: string }>>({});
 
   useEffect(() => {
     fetch('https://gorest.co.in/public/v2/posts')
       .then(response => response.json())
-      .then((data) => setPosts(data))
+      .then(data => setPosts(data))
       .catch(error => console.error('Error fetching posts:', error));
+
+    fetchUsers().then(setUsers);
   }, []);
 
   return (
-    <View style={styles.container}>
+    <View style={{ flex: 1 }}>
       <Text style={styles.title}>Posts</Text>
       <FlatList
         data={posts}
         keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <Link
-            href={{
-              pathname: `./post/${item.id}`,
-              params: { id: item.id.toString() }, // Pass only the post ID
-            }}
-            asChild
-          >
-            <TouchableOpacity style={styles.postItem}>
-              <Text style={styles.postTitle}>{item.title}</Text>
-            </TouchableOpacity>
-          </Link>
+        renderItem={({ item }) => {
+          const user = users[item.user_id];
+          return (
+            <Link href={`/post/${item.id}`} asChild>
+              <TouchableOpacity style={styles.postItem}>
+                <Image
+                  source={{ uri: user?.avatar || 'https://ui-avatars.com/api/?name=User&size=40' }}
+                  style={styles.avatar}
+                  resizeMode="cover"
+                />
 
-        )}
+                <View>
+                  <Text style={styles.userName}>{user?.name || 'Unknown User'}</Text>
+                  <Text style={styles.postTitle}>{item.title}</Text>
+                  <Text style={styles.postContent}>{item.body}</Text>
+                </View>
+              </TouchableOpacity>
+            </Link>
+          );
+        }}
+        contentContainerStyle={{ flexGrow: 1 }}
       />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20 },
-  title: { fontSize: 24, fontWeight: 'bold', marginBottom: 20 },
-  postItem: { padding: 15, backgroundColor: '#f8f8f8', marginBottom: 10, borderRadius: 5 },
-  postTitle: { fontSize: 18 },
+  container: { flex: 1, padding: 10 },
+  title: { fontSize: 24, fontWeight: 'bold', marginBottom: 10 },
+  postItem: { flexDirection: 'row', padding: 10, borderBottomWidth: 1, alignItems: 'center' },
+  avatar: { width: 40, height: 40, borderRadius: 20, marginRight: 10 },
+  userName: { fontWeight: 'bold' },
+  postTitle: { color: 'gray' },
+  postContent: { color: 'gray', fontSize: 12 }
 });
+
